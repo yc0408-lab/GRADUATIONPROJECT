@@ -18,7 +18,10 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 import numpy as np
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
+
+# 한국 시간대 (KST = UTC+9). Streamlit Cloud 서버가 UTC라서 필요
+KST = timezone(timedelta(hours=9))
 
 # =====================================
 # 페이지 기본 설정
@@ -120,12 +123,6 @@ SIGNAL_STYLE = {
 }
 style = SIGNAL_STYLE[signal]
 
-ACTION_MSG = {
-    "상승": "선복 조기 확보 (긴급 선복 대비 운임 20~30% 절감 가능)",
-    "안정": "큰 변동이 예상되지 않습니다",
-    "하락": "운임 협상 여력 확대 시점입니다",
-}
-
 PHASE_INFO = {
     "급변기": {"icon": "🔥", "color": "#501313", "note": "뉴스 기여도 높은 시기"},
     "회복기": {"icon": "📈", "color": "#854F0B", "note": "구조적 변화 진행 중"},
@@ -143,9 +140,10 @@ with col_h1:
     st.markdown("### 공급망 리스크 모니터")
     st.caption(f"CCFI 3주 후 예측 · {current_week} 기준")
 with col_h2:
+    access_time = datetime.now(KST).strftime('%Y.%m.%d %H:%M:%S')
     st.markdown(
         f"<div style='text-align:right; padding-top:18px; color:#5F5E5A; font-size:12px;'>"
-        f"🔄 {datetime.now().strftime('%Y.%m.%d %H:%M')} 업데이트</div>",
+        f"🔄 접속 시각 {access_time}</div>",
         unsafe_allow_html=True
     )
 
@@ -188,9 +186,6 @@ st.markdown(f"""
                 <div style="font-size:20px; font-weight:500; color:{style['text']};">{predicted_ccfi:,.1f}</div>
             </div>
         </div>
-    </div>
-    <div style="margin-top:14px; padding:10px 12px; background:rgba(255,255,255,0.6); border-radius:8px; font-size:13px; color:{style['text']};">
-        ⚠️ <strong style="font-weight:500;">권장 액션:</strong> {ACTION_MSG[signal]}
     </div>
 </div>
 """, unsafe_allow_html=True)
