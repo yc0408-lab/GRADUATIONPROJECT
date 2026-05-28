@@ -85,24 +85,24 @@ intensities = [
     {"name": "강도3 심각",   "ratio": 2,  "color": "#E24B4A"},
 ]
 
-# --- 근거 뉴스 (실제 기사 링크) ---
+# --- 근거 뉴스 (실제 기사 링크 · 2026.5.11~5.24) ---
 news_items = [
-    {"category": "환경", "date": "03.29", "intensity": 3,
-     "title": "홍해 물류 대란 장기화, 한국 경제 직격탄… SCFI 15% 급등 역대 최고치 근접",
-     "source": "브랜드경제신문 · 후티 반군 공격 재점화",
-     "url": "https://www.benews.co.kr/news/481592"},
-    {"category": "환경", "date": "03.29", "intensity": 3,
-     "title": "홍해發 물류 대란 장기화, 한국 수출입 기업 비상… 아시아-유럽 운임 20%↑",
-     "source": "유스연합 · 희망봉 우회 항로 증가",
-     "url": "https://www.youthassembly.kr/news/933157"},
-    {"category": "정치", "date": "02.04", "intensity": 2,
-     "title": "美 통상 갈등에 무역법 전면 개정한 中… 규제 강화로 韓 기업 압박 심화",
-     "source": "서울신문 · 21년 만에 대외무역법 개정",
-     "url": "https://www.seoul.co.kr/news/economy/industry/2026/02/04/20260204500264"},
-    {"category": "환경", "date": "03.02", "intensity": 2,
-     "title": "2026년 해상 운임 변동성: 공급 과잉과 수에즈 운하 재개통의 이중 충격",
-     "source": "시사데이즈 · 로테르담·함부르크 혼잡 우려",
-     "url": "https://www.sisadays.co.kr/news/471780"},
+    {"category": "환경", "date": "05.13", "intensity": 3,
+     "title": "글로벌 공급망 위기, 한국 경제 핵심 변수로… 해상 운임 급등·원자재 조달 불안 경고",
+     "source": "전국인력신문 · 국제금융센터·KDI 4대 부문 동시 교란",
+     "url": "https://www.kjob.news/news/487498"},
+    {"category": "금융", "date": "05.14", "intensity": 2,
+     "title": "HMM '운임 30% 올랐는데'… SCFI 5월 둘째 주 1954까지 급등",
+     "source": "한국신용신문 · 벙커유 50% 폭등에 수익성 악화",
+     "url": "https://www.creditnews.kr/news/articleView.html?idxno=2842"},
+    {"category": "정치", "date": "05.15", "intensity": 2,
+     "title": "2026 미중 정상회담 종합… 반도체 수출통제 별도 트랙 관리, 무역위원회 설립 합의",
+     "source": "법률신문 · 우리 기업 시사점 분석",
+     "url": "https://www.lawtimes.co.kr/news/articleView.html?idxno=220864"},
+    {"category": "환경", "date": "05.22", "intensity": 2,
+     "title": "해상운임지수(CCFI·SCFI·BDI) 통합 모니터링 최신 데이터 갱신",
+     "source": "INDEXerGO · 발틱·상하이 해운거래소 기준",
+     "url": "https://www.indexergo.com/series/?frq=D&codeId=246"},
 ]
 
 # --- CCFI 시계열 (CSV에서 불러올 부분) ---
@@ -241,7 +241,12 @@ with col_b:
 # ④ CCFI 추이 차트
 # =====================================
 with st.container(border=True):
-    st.markdown("**CCFI 추이 및 예측** :gray[최근 12개월]")
+    st.markdown(
+        "**CCFI 추이 및 예측** :gray[최근 12개월] &nbsp;&nbsp;"
+        "<a href='https://www.indexergo.com/series/?frq=D&codeId=246' target='_blank' "
+        "style='font-size:11px; color:#3C3489; text-decoration:none;'>실시간 운임지수 보기 ↗</a>",
+        unsafe_allow_html=True
+    )
     fig = go.Figure()
     fig.add_trace(go.Scatter(
         x=dates_past, y=values_past,
@@ -368,7 +373,8 @@ with st.container(border=True):
 
     st.markdown(
         "<div style='text-align:center; margin-top:14px;'>"
-        "<a href='#' style='font-size:12px; color:#3C3489; text-decoration:none;'>"
+        "<a href='https://search.naver.com/search.naver?where=news&query=공급망 운임 리스크' "
+        "target='_blank' style='font-size:12px; color:#3C3489; text-decoration:none;'>"
         "전체 기사 보기 (최근 4주 28건) →</a></div>",
         unsafe_allow_html=True
     )
