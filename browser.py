@@ -85,24 +85,24 @@ intensities = [
     {"name": "강도3 심각",   "ratio": 2,  "color": "#E24B4A"},
 ]
 
-# --- 근거 뉴스 (CSV에서 불러올 부분) ---
+# --- 근거 뉴스 (실제 기사 링크) ---
 news_items = [
-    {"category": "환경", "date": "05.22", "intensity": 3,
-     "title": "홍해 해운 항로 폐쇄 장기화, 아프리카 우회로 운임 추가 상승 압력",
-     "source": "한국경제 · 컨테이너 운임 영향 분석",
-     "url": "https://example.com/1"},
-    {"category": "환경", "date": "05.20", "intensity": 3,
-     "title": "동남아 슈퍼태풍 '카이탁' 북상, 부산항·싱가포르 항로 운항 차질",
-     "source": "연합뉴스 · 항만 운영 일시 중단",
-     "url": "https://example.com/2"},
-    {"category": "정치", "date": "05.18", "intensity": 2,
-     "title": "미중 관세 협상 결렬, 8월부터 추가 25% 관세 부과 가능성",
-     "source": "로이터 · 공급망 재편 가속화 전망",
-     "url": "https://example.com/3"},
-    {"category": "환경", "date": "05.15", "intensity": 2,
-     "title": "유럽 가뭄 영향 라인강 수위 사상 최저, 내륙 컨테이너 운송 마비",
-     "source": "블룸버그 · 로테르담항 적체 심화",
-     "url": "https://example.com/4"},
+    {"category": "환경", "date": "03.29", "intensity": 3,
+     "title": "홍해 물류 대란 장기화, 한국 경제 직격탄… SCFI 15% 급등 역대 최고치 근접",
+     "source": "브랜드경제신문 · 후티 반군 공격 재점화",
+     "url": "https://www.benews.co.kr/news/481592"},
+    {"category": "환경", "date": "03.29", "intensity": 3,
+     "title": "홍해發 물류 대란 장기화, 한국 수출입 기업 비상… 아시아-유럽 운임 20%↑",
+     "source": "유스연합 · 희망봉 우회 항로 증가",
+     "url": "https://www.youthassembly.kr/news/933157"},
+    {"category": "정치", "date": "02.04", "intensity": 2,
+     "title": "美 통상 갈등에 무역법 전면 개정한 中… 규제 강화로 韓 기업 압박 심화",
+     "source": "서울신문 · 21년 만에 대외무역법 개정",
+     "url": "https://www.seoul.co.kr/news/economy/industry/2026/02/04/20260204500264"},
+    {"category": "환경", "date": "03.02", "intensity": 2,
+     "title": "2026년 해상 운임 변동성: 공급 과잉과 수에즈 운하 재개통의 이중 충격",
+     "source": "시사데이즈 · 로테르담·함부르크 혼잡 우려",
+     "url": "https://www.sisadays.co.kr/news/471780"},
 ]
 
 # --- CCFI 시계열 (CSV에서 불러올 부분) ---
